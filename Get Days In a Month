@@ -1,53 +1,53 @@
-function UpdateGetWeeksInMonth (year, month) {
-				const weeks = [],
-					firstDate = new Date(year, month, 1),
-					lastDate = new Date(year, month + 1, 0),
-					numDays = lastDate.getDate();
+function GetDaysInMonth(year, month) {
+    const weeks = [],
+        firstDate = new Date(year, month, 1),
+        lastDate = new Date(year, month + 1, 0),
+        numDays = lastDate.getDate();
 
-				let dayOfWeekCounter = firstDate.getDay();
+    let dayOfWeekCounter = firstDate.getDay();
 
-				for (let date = 1; date <= numDays; date++) {
-					if (dayOfWeekCounter === 0 || weeks.length === 0) {
-						weeks.push([]);
-					}
-					weeks[weeks.length - 1][dayOfWeekCounter] = date;
-					dayOfWeekCounter = (dayOfWeekCounter + 1) % 7;
-				}
-				var a_weeks = [];
-				weeks
-					.filter((w) => !!w.length)
-					.map((w) => w);
-				var su = [], mo = [], tu = [],
-					we = [], th = [], fr = [], sa = [];
-				for (let day = 0; day < weeks.length; day++) {
-					if (weeks[day][0]) {
-						su.push(weeks[day][0])
-					}
-					if (weeks[day][1]) {
-						mo.push(weeks[day][1])
-					}
-					if (weeks[day][2]) {
-						tu.push(weeks[day][2])
-					}
-					if (weeks[day][3]) {
-						we.push(weeks[day][3])
-					}
-					if (weeks[day][4]) {
-						th.push(weeks[day][4])
-					}
-					if (weeks[day][5]) {
-						fr.push(weeks[day][5])
-					}
-					if (weeks[day][6]) {
-						sa.push(weeks[day][6])
-					}
-				}
-				a_weeks.push(su)
-				a_weeks.push(mo)
-				a_weeks.push(tu)
-				a_weeks.push(we)
-				a_weeks.push(th)
-				a_weeks.push(fr)
-				a_weeks.push(sa)
-				return a_weeks;
-			}
+    for (let date = 1; date <= numDays; date++) {
+        if (dayOfWeekCounter === 0 || weeks.length === 0) {
+            weeks.push([]);
+        }
+        weeks[weeks.length - 1][dayOfWeekCounter] = date;
+        dayOfWeekCounter = (dayOfWeekCounter + 1) % 7;
+    }
+    var a_weeks = [];
+    weeks
+        .filter((w) => !!w.length)
+        .map((w) => w);
+    var su = [], mo = [], tu = [],
+        we = [], th = [], fr = [], sa = [];
+    for (let day = 0; day < weeks.length; day++) {
+        if (weeks[day][0]) {
+            su.push(weeks[day][0])
+        }
+        if (weeks[day][1]) {
+            mo.push(weeks[day][1])
+        }
+        if (weeks[day][2]) {
+            tu.push(weeks[day][2])
+        }
+        if (weeks[day][3]) {
+            we.push(weeks[day][3])
+        }
+        if (weeks[day][4]) {
+            th.push(weeks[day][4])
+        }
+        if (weeks[day][5]) {
+            fr.push(weeks[day][5])
+        }
+        if (weeks[day][6]) {
+            sa.push(weeks[day][6])
+        }
+    }
+    a_weeks.push(su)
+    a_weeks.push(mo)
+    a_weeks.push(tu)
+    a_weeks.push(we)
+    a_weeks.push(th)
+    a_weeks.push(fr)
+    a_weeks.push(sa)
+    return a_weeks;
+}
